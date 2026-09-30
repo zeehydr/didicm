@@ -104,7 +104,7 @@ class DiDiCMPredictor(Predictor):
         all_rev_rates += torch.eye(self.num_classes, device=p.device)
 
         # Calculate next probabilities
-        next_probs = torch.bmm(all_rev_rates, p.unsqueeze(2)).squeeze()    
+        next_probs = torch.bmm(all_rev_rates, p.unsqueeze(2)).squeeze(2)
         return next_probs
 
 
